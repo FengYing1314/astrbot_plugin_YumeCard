@@ -1,0 +1,76 @@
+{
+  "GitHub": {
+    "description": "GitHub 相关核心配置 (用于 YumeCard)",
+    "type": "object",
+    "hint": "请填写必要的 GitHub 用户名、Token 及仓库信息。",
+    "items": {
+      "username": {
+        "description": "目标 GitHub 用户名 (必填)",
+        "type": "string",
+        "default": "",
+        "hint": "YumeCard 功能将围绕此用户名展开, 例如: YumeYuka 或 FengYing1314"
+      },
+      "token": {
+        "description": "你的 GitHub 个人访问令牌 (PAT) (必填)",
+        "type": "string",
+        "default": "",
+        "hint": "用于访问 GitHub API。请确保令牌具有读取仓库内容的权限 (如 repo, public_repo)。",
+        "obvious_hint": true
+      },
+      "refresh_interval_seconds": {
+        "description": "数据刷新间隔时间 (秒) (选填)",
+        "type": "int",
+        "default": 3600,
+        "hint": "插件从 GitHub 刷新数据的周期。例如: 3600 代表一小时, 0 表示不自动刷新 (如果插件支持)。"
+      },
+      "backgrounds": {
+        "description": "是否启用 GitHub 背景图功能 (选填)",
+        "type": "bool",
+        "default": true,
+        "hint": "控制是否从 GitHub 加载背景图片。YumeCard 示例配置中为字符串 \"true\", 这里使用布尔型 true。"
+      },
+      "repository": {
+        "description": "要跟踪的仓库列表 (至少配置一项, 其中仓库名称 repo 必填)",
+        "type": "list",
+        "hint": "定义 YumeCard 需要跟踪和更新的 GitHub 仓库信息。例如, 列表中的一项可以这样配置: { \"owner\": \"YumeYuka\", \"repo\": \"YumeCard\", \"branch\": \"main\" } (lastsha 字段由插件自动管理,无需手动配置)。",
+        "default": [
+          {
+            "owner": "FengYing1314",
+            "repo": "astrbot_plugin_YumeCard",
+            "branch": "main",
+            "lastsha": ""
+          }
+        ],
+        "items": {
+          "type": "object",
+          "items": {
+            "owner": {
+              "description": "仓库所有者 (选填)",
+              "type": "string",
+              "default": "FengYing1314",
+              "hint": "目标仓库的所有者/组织名, 例如: FengYing1314"
+            },
+            "repo": {
+              "description": "仓库名称 (此项必填)",
+              "type": "string",
+              "default": "",
+              "hint": "目标仓库的名称, 例如: YumeCard 或 astrbot_plugin_token_auto"
+            },
+            "branch": {
+              "description": "仓库分支 (选填)",
+              "type": "string",
+              "default": "main",
+              "hint": "目标仓库的分支名称, 例如: main 或 master"
+            },
+            "lastsha": {
+              "description": "最后同步的 SHA-1 值 (插件自动管理)",
+              "type": "string",
+              "default": "",
+              "invisible": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
