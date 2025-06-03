@@ -100,7 +100,6 @@ def unzip_file_sync(zip_path: str, extract_dir: str) -> bool:
 class MyPlugin(Star):
     def __init__(self, context: Context, config: AstrBotConfig):
         super().__init__(context)
-        # 将 AstrBot 框架传入的配置对象 (包含用户通过 UI 设置的值) 保存为实例变量
         self.config: AstrBotConfig = config
         # 用于存储 YumeCard 可执行文件的路径, 初始化时为 None
         self.yume_card_executable: str | None = None
