@@ -29,6 +29,17 @@
         "default": true,
         "hint": "控制是否从 GitHub 加载背景图片。YumeCard 示例配置中为字符串 \"true\", 这里使用布尔型 true。"
       },
+      "notification_targets": {
+        "description": "通知推送目标列表 (选填)",
+        "type": "list",
+        "default": [],
+        "hint": "配置接收 YumeCard 生成图片通知的目标。每个目标应该是 unified_msg_origin 格式的字符串。例如：[\"group_123456\", \"private_789012\"]",
+        "items": {
+          "type": "string",
+          "description": "目标标识符",
+          "hint": "目标的 unified_msg_origin，可以是群组或私聊的标识符"
+        }
+      },
       "repository": {
         "description": "要跟踪的仓库列表 (至少配置一项, 其中仓库名称 repo 必填)",
         "type": "list",
