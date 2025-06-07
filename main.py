@@ -214,7 +214,7 @@ class ImageFileHandler(FileSystemEventHandler):
                 logger.error(f"提交发送通知任务失败: {e}")
 
 
-@register("astrbot_plugin_YumeCard", "FengYing1314", "让AstrBot接入YumeCard!", "1.0.1")
+@register("astrbot_plugin_YumeCard", "FengYing1314", "让AstrBot接入YumeCard!", "1.1.0", "YumeCard 插件")
 class MyPlugin(Star):
     def __init__(self, context: Context, config: AstrBotConfig):
         super().__init__(context)
